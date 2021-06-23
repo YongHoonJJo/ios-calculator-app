@@ -32,13 +32,11 @@ struct Calculator {
         return postfix
     }
     
-    mutating func pushToInfix(with inputNotation: [String]) {
+    mutating func pushToInfix(with inputNotation: [String]) { // ["1", "+", "a", "3", "*", "5"]
         for value in inputNotation {
             if let operatorValue = Operator(rawValue: value) {
                 infix.append(operatorValue)
-            } else {
-                let number = Operand.checkType(of: value)
-                let operandValue = Operand(operand: number)
+            } else if let operandValue = Operand(operand: value) {
                 infix.append(operandValue)
             }
         }

@@ -7,7 +7,4 @@
 
 import Foundation
 
-protocol Operandable { }
 
-extension Int: Operandable { }
-extension Double: Operandable { }
